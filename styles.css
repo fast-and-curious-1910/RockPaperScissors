@@ -81,9 +81,16 @@ header > h2{
     margin: 0 20px;
     padding: 10px;
     display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .choice:hover{
     cursor: pointer;
-    background-color: #272930;
+    background-color: purple;
+}
+
+#action-message{
+    text-align: center;
+    color: white;
+    font-family: Asap;
 }
