@@ -71,6 +71,7 @@ header > h2{
 }
 
 .choices{
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -95,4 +96,5 @@ header > h2{
     font-family: Asap;
     font-weight: bold;
     font-size: 20px;
+    margin-top: 20px;
 }
