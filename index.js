@@ -21,9 +21,9 @@ const toWord = (letter) => {
 }
 
 const draw = (u,c) => {
-    console.log('\n')
-    console.log('You both are quite smart!')
-    console.log('Draw')
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = `DRAW ! ${toWord(c)} -  ${toWord(c)}`
 
 }
 
@@ -34,8 +34,12 @@ const win= (u,c) => {
     result_p.innerHTML = `${toWord(c)} beats ${toWord(c)}. You Win!`
 }
 
+
 const loose= (u,c) => {
-    
+    computerScore++
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = `${toWord(c)} beats ${toWord(c)}. You Lost :( `
 }
 
 
@@ -66,7 +70,7 @@ const game = (userChoice) => {
         case 'rr':
         case 'pp':
         case 'ss':
-            draw(userChoice,computerChoice)
+            console.log('draawwwwwwww')
             break
 
     }
@@ -86,5 +90,4 @@ const main = () => {
         game('s')
     })
 }
-
 main()
