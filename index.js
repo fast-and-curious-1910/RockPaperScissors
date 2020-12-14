@@ -3,26 +3,38 @@ var computerScore = 0;
 var userScore_span = document.getElementById('user-score');
 var computerScore_span = document.getElementById('computer-score')
 var scoreBoard_div = document.querySelector('.score-board')
-var result_div = document.querySelector('.result')
+var result_p = document.querySelector('.result > p')
 var rock_div = document.getElementById('r')
 var paper_div = document.getElementById('p')
 var scissors_div = document.getElementById('s')
 
-const draw = () => {
+
+const toWord = (letter) => {
+
+    if (letter === 'r'){
+        return 'Rock'
+    }
+    if (letter === 's') {
+        return 'Scissors'
+    }
+    else return 'Paper'
+}
+
+const draw = (u,c) => {
     console.log('\n')
     console.log('You both are quite smart!')
     console.log('Draw')
 
 }
 
-
-const win= () => {
+const win= (u,c) => {
     userScore++
     userScore_span.innerHTML = userScore;
-    // computerScore_span.innerHTML = computerScore_span;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = `${toWord(c)} beats ${toWord(c)}. You Win!`
 }
 
-const loose= () => {
+const loose= (u,c) => {
     
 }
 
@@ -39,22 +51,23 @@ const game = (userChoice) => {
     var computerChoice = getComputerChoice()
     // console.log('Computer Choice => ',computerChoice)
     // console.log( 'User Choice => ' , userChoice)
-
-    switch (userChoice + computerChoice){
+    var bothchoice = userChoice + computerChoice
+    switch (bothchoice){
         case "rp":
         case 'pr':
         case 'sp':
-            win(userScore)
+            win(userChoice,computerChoice)
             break;
         case "rs":
         case 'ps':
         case 'sr':
-            loose(userScore)
+            loose(userChoice,computerChoice)
             break;
         case 'rr':
         case 'pp':
         case 'ss':
-            draw()
+            draw(userChoice,computerChoice)
+            break
 
     }
 }
